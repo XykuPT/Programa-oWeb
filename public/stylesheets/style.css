@@ -16,7 +16,7 @@ a {
 }
 
 .fixed-footer{
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -25,5 +25,15 @@ a {
 }
 
 .text-center {
+  text-align: center;
+}
+
+.landingImage{
+  height: 500px;
+  width: 900px;
+}
+
+.landingTitle{
+  font-size: 64px;
   text-align: center;
 }
