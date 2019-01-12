@@ -43,3 +43,21 @@ a {
   height: 500px;
   width: auto;
 }
+
+.prodImage {
+  height: 400px;
+  width: 500px;
+}
+
+.colorBtn{
+  border: 2px solid!important;
+}
+
+#size {
+  height: 50px;
+  width: 100px;
+}
+
+.productContainer{
+  padding-top: 20px;
+}

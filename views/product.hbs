@@ -1,52 +1,42 @@
 <section>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <a class="btn btn-primary">Go back</a>
+  <div class="section">
+    <div class="container productContainer">
+      <div class="row">
+        <div class="col-md-6">
+          <img class="img-fluid" src="https://static.pingendo.com/cover-moon.svg" class="img-responsive">
+        </div>
+        <div class="col-md-6">
+          <h1>{{data.[0].name}}</h1>
+          <h3>{{data.[0].price}}</h3>
+          <div class="btn-group btn-group-lg">
+            <button id="size" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button" > Size </button>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+              <li class="dropdown-item" >S</li>
+              <li class="dropdown-item" >M</li>
+              <li class="dropdown-item" >L</li>
+              <li class="dropdown-item" >XL</li>
+            </ul>
           </div>
+          <div>
+            <p>Color</p>
+          {{#each data.[0].color}}
+          <button class="btn colorBtn" style="background-color: {{this}}"></button>
+          {{/each}}
+          </div>
+        </div>
         </div>
       </div>
     </div>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive">
-          </div>
-          <div class="col-md-6">
-            <h1>A title</h1>
-            <h3>A subtitle</h3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-              ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-              dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-              nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-              Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In
-              enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum
-              felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
-              elementum semper nisi.</p>
-          </div>
-        </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <div class="row inline ">
+        <div class="col-md-6">
+          <a href="/catalog" class="btn btn-primary">Go back</a>
+      </div>
+      <div class="col-md-6">
+        <a class="btn btn-primary">Add to cart</a>
       </div>
     </div>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="btn-group btn-group-lg">
-              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Size <span class="fa fa-caret-down"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li>
-                  <a href="#">Action</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <a class="btn btn-primary">Add to cart</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
+  </div>
 </section>
