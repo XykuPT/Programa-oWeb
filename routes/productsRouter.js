@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var productsDAO = require("../models/DAO/productsDAO");
+var productModel = require('../models/products');
 
-router.get('/', function( res, next) {
-    productsDAO.listProducts( function(result) {res.writeHead(200, {'Content-Type':'application/json'});
-    res.send(result);
-}, next)
+/* GET stand resource */
+router.get('/', function(req, res, next) {
+	var products = productModel.getProducts();
+	var json = JSON.stringify(products);
+	res.send(json);
 });
 
 module.exports = router;

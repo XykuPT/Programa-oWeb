@@ -1,21 +1,17 @@
-/* MongoDB */
-// var mongodb = require('./mongoConn.js');
+// var fs = require('fs');
+// var obj = JSON.parse(fs.readFileSync('/models/products.json', 'utf8'));
 
-// exports.listProducts = function(callback, next){
-//     mongodb.db.collection("products").find({}).toArray(function(err, res){
-//         if(err) next(err);
-//         else callback(res);
-//     })
-// }
+// exports.obj = obj;
 
-/* using json file*/
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const path = require('path')
-const router = jsonServer.router(path.join(__dirname, 'db.json'))
-const middlewares = jsonServer.defaults()
-
-server.use(middlewares)
-server.use(router)
+var Mongo = require('./mongoConn');
 
 
+exports.listProducts = function (callback) {
+    Mongo.collection.find({}).toArray(function(err, result) {
+        console.log(result)
+        if (err) 
+            callback(err, null);
+        else 
+            callback(null, result);
+});  
+}

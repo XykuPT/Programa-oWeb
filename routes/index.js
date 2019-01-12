@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var productsDao = require('../models/DAO/productsDAO');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  productsDao.listProducts(function(err, data) {
+    res.render('index', { data: data, script: '/javascripts/index.js'});
+  });
 });
 
 router.get('/cart', function(req, res, next) {
@@ -15,10 +18,10 @@ router.get('/checkout', function(req, res, next) {
 });
 
 router.get('/catalog', function(req, res, next) {
-  res.render('catalog');
+  res.render('catalog', {script: '/javascripts/catalog.js'});
 });
 
-router.get('/product', function(req, res, next) {
+router.get('/product/:prodId', function(req, res, next) {
   res.render('product');
 });
 

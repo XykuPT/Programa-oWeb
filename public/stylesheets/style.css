@@ -37,3 +37,9 @@ a {
   font-size: 64px;
   text-align: center;
 }
+
+.carousel-item {
+  background-image: url("https://static.pingendo.com/cover-moon.svg");
+  height: 500px;
+  width: auto;
+}
