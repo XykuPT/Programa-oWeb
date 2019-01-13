@@ -1,8 +1,3 @@
-// var fs = require('fs');
-// var obj = JSON.parse(fs.readFileSync('/models/products.json', 'utf8'));
-
-// exports.obj = obj;
-
 var Mongo = require('./mongoConn');
 
 

@@ -6,6 +6,7 @@ var logger = require('morgan');
 var hbs = require('hbs');
 
 var indexRouter = require('./routes/index');
+var apiRouter = require('./api/routes/index');
  
 var app = express();
 
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api', apiRouter);
 app.use('/', indexRouter);
 
 hbs.registerPartials(__dirname + '/views/partials');
