@@ -35,7 +35,7 @@ $('.addToCart').on('click',function(){
     existingProducts.push(product);
     window.localStorage.setItem("shoppingCart", JSON.stringify(existingProducts));
     
-    $('#alert').append("  <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\"><strong>Holy guacamole!</strong> You should check in on some of those fields below.<button id=\"alertClose\" type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>");
+    $('#alert').append("  <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\"><strong>Item added to cart.</strong> <button id=\"alertClose\" type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>");
 });
 
 

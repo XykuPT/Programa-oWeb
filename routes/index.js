@@ -14,7 +14,7 @@ router.get('/cart', function(req, res, next) {
 });
 
 router.get('/checkout', function(req, res, next) {
-  res.render('checkout'); 
+  res.render('checkout', {script: '/javascripts/checkout.js'}); 
 });
 
 router.get('/catalog', function(req, res, next) {
