@@ -1,3 +1,4 @@
+
 $(".carousel-inner").ready(function() {
     $(".carousel-inner").find(".carousel-item").first().addClass("active")
     $(".carousel-indicators li:first-child").addClass("active")
@@ -13,4 +14,3 @@ $(".carousel-inner").ready(function() {
 
     })
 });
-

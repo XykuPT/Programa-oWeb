@@ -19,7 +19,6 @@ router.get('/checkout', function(req, res, next) {
 
 router.get('/catalog', function(req, res, next) {
   productsDao.listProducts(function(err, data) {
-    console.log(data);
   res.render('catalog', {data: data, script: '/javascripts/catalog.js'});
   });
 });

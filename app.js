@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
-var fs = require('fs');
+var session = require('express-session');
 
 var indexRouter = require('./routes/index');
  
@@ -24,6 +24,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 
 hbs.registerPartials(__dirname + '/views/partials');
+
+//session
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
+
+
 
 
 // catch 404 and forward to error handler
