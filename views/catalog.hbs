@@ -10,8 +10,8 @@
           </div>
            <div class="col-md-12">
             <div class="btn-group">
-              <a href="#" class="btn btn-default">camisas</a>
-              <a href="#" class="btn btn-default">calças</a>
+              <a href="/catalog/shirts" class="btn btn-default">camisas</a>
+              <a href="/catalog/pants" class="btn btn-default">calças</a>
               <a href="#" class="btn btn-default">casacos</a>
             </div>
           </div>
@@ -21,63 +21,21 @@
     <div class="section">
       <div class="container">
         <div class="row">
-          <div class="col-md-3">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-          </div>
-          <div class="col-md-3">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-          </div>
-          <div class="col-md-3">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-          </div>
-          <div class="col-md-3">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-          </div>
-          <div class="col-md-3">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-          </div>
-          <div class="col-md-3">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-          </div>
-          <div class="col-md-3">
-            <a><img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <ul class="pagination">
-              <li>
-                <a href="#">Prev</a>
-              </li>
-              <li>
-                <a href="#">1</a>
-              </li>
-              <li>
-                <a href="#">2</a>
-              </li>
-              <li>
-                <a href="#">3</a>
-              </li>
-              <li>
-                <a href="#">4</a>
-              </li>
-              <li>
-                <a href="#">5</a>
-              </li>
-              <li>
-                <a href="#">Next</a>
-              </li>
-            </ul>
-          </div>
+          {{#each data}}
+          <a class="cardA" href="/product/{{this.prodId}}">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://static.pingendo.com/cover-moon.svg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{this.name}}</h5>
+                  <p class="card-text">{{this.price}}</p>
+                  {{#each this.color}}
+                    <button class="btn colorBtn" style="background-color: {{this}}"></button>
+                  {{/each}}
+                  <a href="#" class="btn btn-primary">Add to Cart</a>
+                </a>
+              </div>
+            </div>
+          {{/each}}
         </div>
       </div>
     </div>

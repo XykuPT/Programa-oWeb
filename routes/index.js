@@ -18,12 +18,20 @@ router.get('/checkout', function(req, res, next) {
 });
 
 router.get('/catalog', function(req, res, next) {
-  res.render('catalog', {script: '/javascripts/catalog.js'});
+  productsDao.listProducts(function(err, data) {
+    console.log(data);
+  res.render('catalog', {data: data, script: '/javascripts/catalog.js'});
+  });
+});
+
+router.get('/catalog/:category', function(req, res, next) {
+  productsDao.getCategory( req.params.category ,function(err, data) {
+  res.render('catalog', {data: data, script: '/javascripts/catalog.js'});
+  });
 });
 
 router.get('/product/:prodId', function(req, res, next) {
   productsDao.getProduct( req.params.prodId ,function(err, data) {
-    console.log(data);
   res.render('product', {data: data, script: '/javascripts/product.js'});
   });
 });

@@ -13,13 +13,13 @@
                     <h1 class="mb-3"><a href="/catalog" style="text-decoration: none;">Catalog</a></h1>
                     <div id="carousel1" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
                       <div class="carousel-inner">
-                        {{#each data.[0].products.shirts}}
-                          <a href="/catalog"><div class="carousel-item" ><p>{{name}}</p></div></a>
+                        {{#each data}}
+                          <a href="/product/{{this.prodId}}"><div class="carousel-item" ><p>{{this.name}}</p></div></a>
                         {{/each}}
                       </div>
                       <ol class="carousel-indicators">
-                        {{#each data.[0].products.shirts}}
-                        <li data-slide-to="{{@index}}"> </li>
+                        {{#each data}}
+                        <li class="changeItem" data-slide-to="{{@index}}"> </li>
                         {{/each}}
                       </ol>
                     </div>
