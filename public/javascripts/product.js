@@ -20,7 +20,22 @@ $('.colorBtn').on('click',function(){
 })
 
 $('.addToCart').on('click',function(){
-    var color = $('.colorGrp').find('.active').val();
+    var name = $('#name').text();
+    var price = $('#price').text();
+    var qty = parseInt($('.qtyInput').val());
+    var color = $('.colorGrp').find('.active').attr('id') || $('.colorBtn').first().attr('id');
 
-    window.localStorage.setItem("shoppingCart", color)
+    var existingProducts = JSON.parse(window.localStorage.getItem('shoppingCart')) instanceof Array ?  JSON.parse(window.localStorage.getItem('shoppingCart')) : [] ;
+    var product = {
+        name: name,
+        price: price,
+        qty: qty,
+        color: color
+    }
+    existingProducts.push(product);
+    window.localStorage.setItem("shoppingCart", JSON.stringify(existingProducts));
+    
+    $('#alert').append("  <div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\"><strong>Holy guacamole!</strong> You should check in on some of those fields below.<button id=\"alertClose\" type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>");
 });
+
+
