@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var productsDao = require('../models/DAO/productsDAO');
-var apiUrl = 'localhost:3000/api';
+var apiUrl = 'http://localhost:3000/api';
 
 
 /* GET home page. */
@@ -15,8 +15,8 @@ router.get('/', function(req, res, next) {
       if(err){
         console.log(err);
       } else {
-        console.log(result);
-        res.render('index', {data: result, script: '/javascript/index.js'});
+        console.log(result.body);
+        res.render('index', {data: result.body, script: '/javascript/index.js'});
       }
     })
 });
@@ -35,7 +35,7 @@ router.get('/catalog', function(req, res, next) {
     uri: apiUrl + '/products'
   };
   request(options, function(err, result){
-    res.render('catalog', {data: result, script: '/javascripts/catalog.js'});
+    res.render('catalog', {data: result.body, script: '/javascripts/catalog.js'});
   })
 });
 
@@ -45,7 +45,7 @@ router.get('/catalog/:category', function(req, res, next) {
     uri: apiUrl + '/category/' + req.params.category
   }
   request(options, function(err, result){
-    res.render('catalog', {data: result, script: '/javascripts/catalog.js'});
+    res.render('catalog', {data: result.body, script: '/javascripts/catalog.js'});
   })
 });
 
@@ -55,7 +55,7 @@ router.get('/product/:prodId', function(req, res, next) {
     uri: apiUrl + '/product/' + req.params.prodId
   }
   request(options, function(err, result){
-    res.render('product', {data: result, script: '/javascripts/product.js'});
+    res.render('product', {data: result.body, script: '/javascripts/product.js'});
   });
 });
 
