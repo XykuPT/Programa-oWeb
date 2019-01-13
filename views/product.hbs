@@ -18,7 +18,16 @@
             </ul>
           </div>
           <div>
-            <p>Color</p>
+            <div class="input-group qtyGroup">
+              <button type="button" class="btn btn-danger btnMinus"  >
+                <i class="fa fa-minus"></i>
+              </button>
+              <input class="qtyInput" type="number" value="1" min="1" max="{{data.[0].qty}}">
+              <button type="button" class="btn btn-success btn-number btnPlus" >
+                  <i  class="fa fa-plus"></i>
+              </button>
+            </div>
+            <p style="margin: 5px;">Color</p>
           {{#each data.[0].color}}
           <button class="btn colorBtn" style="background-color: {{this}}"></button>
           {{/each}}
