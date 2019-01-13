@@ -12,12 +12,7 @@ router.get('/', function(req, res, next) {
       uri: apiUrl + '/products'
     };
     request(options, function(err, result){
-      if(err){
-        console.log(err);
-      } else {
-        console.log(result.body);
-        res.render('index', {data: result.body, script: '/javascript/index.js'});
-      }
+      res.render('index', {data: JSON.parse(result.body), script: '/javascripts/index.js'});
     })
 });
 
@@ -35,7 +30,7 @@ router.get('/catalog', function(req, res, next) {
     uri: apiUrl + '/products'
   };
   request(options, function(err, result){
-    res.render('catalog', {data: result.body, script: '/javascripts/catalog.js'});
+    res.render('catalog', {data: JSON.parse(result.body), script: '/javascripts/catalog.js'});
   })
 });
 
@@ -45,17 +40,17 @@ router.get('/catalog/:category', function(req, res, next) {
     uri: apiUrl + '/category/' + req.params.category
   }
   request(options, function(err, result){
-    res.render('catalog', {data: result.body, script: '/javascripts/catalog.js'});
+    res.render('catalog', {data: JSON.parse(result.body), script: '/javascripts/catalog.js'});
   })
 });
 
 router.get('/product/:prodId', function(req, res, next) {
   var options = {
     method: 'GET',
-    uri: apiUrl + '/product/' + req.params.prodId
+    uri: apiUrl + '/products/' + req.params.prodId
   }
   request(options, function(err, result){
-    res.render('product', {data: result.body, script: '/javascripts/product.js'});
+    res.render('product', {data: JSON.parse(result.body), script: '/javascripts/product.js'});
   });
 });
 

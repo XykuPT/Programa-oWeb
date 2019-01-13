@@ -10,14 +10,16 @@ module.exports.getProducts = function(req, res) {
         if(err) {
             sendJSONresponse(res, 404, err)
         } else {
+            console.log(data);
             sendJSONresponse(res, 200, data);
         }
       });
 }
 
 module.exports.getProduct = function(req, res) {
-    productsDao.getProduct( req.params.prodId, function(err, data) {
+    productsDao.getProduct(req.params.prodId, function(err, data) {
         if(err){
+            console.log(err)
             sendJSONresponse(res, 404, err);
         } else {
             sendJSONresponse(res, 200, data);
